@@ -25,6 +25,18 @@ function generate_production_JS($jsontxt,$canalFolder,$currentDate){
 	  
 }
 
+  /*
+  identificador unico
+   */
+function getID($mysqli){
+	$uui = $mysqli->query("SELECT uuid() as identificador LIMIT 1");
+	while ($row2 = mysqli_fetch_assoc($uui))
+	  {
+	  	return $row2['identificador']; 
+	  }
+}
+
+
 /*función que con la hora de incio+duración devuelve la hora de terminación en segundos*/
 function finalHourBySeconds($hourStart,$durationSeconds){
 	$firstStep=explode(":",$hourStart);

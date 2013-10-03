@@ -12,6 +12,11 @@
 include("config.php");
 include("functions.php");
 
+$mysqli = new mysqli(URL_DATABASE, USER_DATABASE, PASSWORD_DATABASE, TABLE_DATABASE);
+if ($mysqli->connect_errno) {
+    //echo "Fallo al contenctar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    echo 'Fallo la conexion con la base de datos, solo se generaran los JSON';
+}
 
 $year=substr(date('Y'),2,2);
 $month=date('m');
@@ -67,7 +72,89 @@ for($h=0;$h<sizeof($currentDate);$h++){
 			}else{
 				$finalProductionFile=generate_production_JS($diferencialContent,$channelArray[$z],$currentDate[$h]);
 				echo "creando archivo: ".URL_FEED_OUTPUT.$channelArray[$z]."/".$currentDate[$h].".js<br>";
-				// INSERTS
+
+
+				// INSERTS				
+				$JsonContent = json_decode($diferencialContent, true);
+
+
+				// insert nombre del canal
+				
+
+				//ID del CANAL
+				$IDCANAL= getID($mysqli);
+				$channelName = strtolower($JsonContent['PROGRAMACION']['CANAL']['title']);	
+
+				$channelexist = $mysqli->query("SELECT id_canal FROM canal WHERE nombre ='".$channelName."'");			 
+				
+				if($channelexist->num_rows==0){
+					$queryCANAL = "INSERT INTO canal VALUES ('".$IDCANAL."', '".$channelName."', '".$JsonContent['PROGRAMACION']['CANAL']['logo']."')";
+						if ($mysqli->query($queryCANAL)) {
+							echo "<h3>Canal Agregado</h3>".strtolower($JsonContent['PROGRAMACION']['CANAL']['title']);
+						}else{
+							echo "<h3>Canal NO Agregado</h3>".strtolower($JsonContent['PROGRAMACION']['CANAL']['title']);
+						}
+
+				}else{
+					echo "<br>ya no agrego el canal<BR>";
+				}
+
+
+				// FECHA
+				$IDFecha = getID($mysqli);
+				$fechatmp = $JsonContent['PROGRAMACION']['FECHA'];	
+
+				$dateexist = $mysqli->query("SELECT id_fecha FROM fecha WHERE fecha ='".$fechatmp."'");			 
+				
+				if($dateexist->num_rows==0){
+					$queryDate = "INSERT INTO fecha VALUES ('".$IDFecha."', '".$fechatmp."')";
+						if ($mysqli->query($queryDate)) {
+							echo "<h3>Fecha Agregada</h3>".$fechatmp;
+						}else{
+							echo "<h3>Fecha no Agregada</h3>".$fechatmp;
+						}
+
+				}else{
+					echo "<br>ya no agrego la fecha<br>";
+				}
+				 
+
+				
+				
+
+				
+
+
+/*
+	
+				echo "la fecha del json es: ". $JsonContent['PROGRAMACION']['FECHA'];
+				
+
+
+				foreach ($JsonContent['PROGRAMACION']['CANAL']['SHOWS'] as $key => $bodyShow) {
+					
+					//programa
+					echo "<br>_________PROGRAMA__________<br>";
+					echo $bodyShow['title'];
+					echo "<br>";
+					echo $bodyShow['descripcion'];
+					echo "<br>____________________<br>";
+
+					echo "<br>_________CONTENIDO__________<br>";
+					echo $bodyShow['horario'];
+					echo "<br>";
+					echo (int)$bodyShow['duration'];
+					echo "<br>";
+					echo (int)$bodyShow['timestamp'];
+					echo "<br>";
+					
+				}
+*/
+				//END INSERTS
+
+
+
+
 			}
 			
 			
