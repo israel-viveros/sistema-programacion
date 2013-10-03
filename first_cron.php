@@ -67,6 +67,7 @@ for($h=0;$h<sizeof($currentDate);$h++){
 			}else{
 				$finalProductionFile=generate_production_JS($diferencialContent,$channelArray[$z],$currentDate[$h]);
 				echo "creando archivo: ".URL_FEED_OUTPUT.$channelArray[$z]."/".$currentDate[$h].".js<br>";
+				// INSERTS
 			}
 			
 			
