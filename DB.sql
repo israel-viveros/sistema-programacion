@@ -1,3 +1,4 @@
+DROP DATABASE parrilla_programacion;
 CREATE DATABASE IF NOT EXISTS parrilla_programacion;
 
 USE parrilla_programacion;
@@ -18,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `fecha`(
 CREATE TABLE IF NOT EXISTS `programacion`(
 	`id_programacion` varchar(40) NOT NULL,
 	`id_canal` varchar(40) NOT NULL,
-	`id_fecha` varchar(20) 	 NOT NULL,
+	`id_fecha` varchar(40) 	 NOT NULL,
 	PRIMARY KEY (`id_programacion`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -38,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `programacion_contenido`(
 CREATE TABLE IF NOT EXISTS `programas`(
 	`id_programa` varchar(40) NOT NULL,
 	`nombre` varchar(40) NOT NULL,
-	`descripcion` varchar(80) NOT NULL,
+	`descripcion` varchar(150) NOT NULL,
 	PRIMARY KEY (`id_programa`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 

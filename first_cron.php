@@ -83,16 +83,19 @@ for($h=0;$h<sizeof($currentDate);$h++){
 
 				//ID del CANAL
 				$IDCANAL= getID($mysqli);
-				$channelName = strtolower($JsonContent['PROGRAMACION']['CANAL']['title']);	
+
+
+				$channelName = addslashes(strtolower($JsonContent['PROGRAMACION']['CANAL']['title']));	
+				echo "<h1>".$IDCANAL."-".$channelName."</h1>";
 
 				$channelexist = $mysqli->query("SELECT id_canal FROM canal WHERE nombre ='".$channelName."'");			 
 				
 				if($channelexist->num_rows==0){
 					$queryCANAL = "INSERT INTO canal VALUES ('".$IDCANAL."', '".$channelName."', '".$JsonContent['PROGRAMACION']['CANAL']['logo']."')";
 						if ($mysqli->query($queryCANAL)) {
-							echo "<h3>Canal Agregado</h3>".strtolower($JsonContent['PROGRAMACION']['CANAL']['title']);
+							echo "<h3>Canal Agregado -".strtolower($JsonContent['PROGRAMACION']['CANAL']['title'])."</h3>";
 						}else{
-							echo "<h3>Canal NO Agregado</h3>".strtolower($JsonContent['PROGRAMACION']['CANAL']['title']);
+							echo "<h3>Canal NO Agregado".strtolower($JsonContent['PROGRAMACION']['CANAL']['title'])."</h3>";
 						}
 
 				}else{
@@ -107,53 +110,94 @@ for($h=0;$h<sizeof($currentDate);$h++){
 				$dateexist = $mysqli->query("SELECT id_fecha FROM fecha WHERE fecha ='".$fechatmp."'");			 
 				
 				if($dateexist->num_rows==0){
+					$dateexistFlag = FALSE;
 					$queryDate = "INSERT INTO fecha VALUES ('".$IDFecha."', '".$fechatmp."')";
 						if ($mysqli->query($queryDate)) {
-							echo "<h3>Fecha Agregada</h3>".$fechatmp;
+							echo "<h2>Fecha Agregada".$IDFecha."-".$fechatmp."</h2>";							
 						}else{
-							echo "<h3>Fecha no Agregada</h3>".$fechatmp;
+							echo "<h2>Fecha NO Agregada".$IDFecha."-".$fechatmp."</h2>".$fechatmp;
 						}
 
 				}else{
 					echo "<br>ya no agrego la fecha<br>";
+					$dateexistFlag = TRUE;
 				}
+
+				//programacion
+				
+				$IDProgramacion = getID($mysqli);
+
+				if ($dateexistFlag==FALSE) {
+					$programacionFlag = TRUE;
+					$queryProgramacion = "INSERT INTO programacion VALUES ('".$IDProgramacion."', '".$IDCANAL."', '".$IDFecha."')";
+						if ($mysqli->query($queryProgramacion)) {
+							echo "<h6>programacion agregada".$fechatmp."</h6>";
+						}else{
+							echo "<h6>programacion no agregada a fallado el insert".$fechatmp."</h6>";
+						}
+				}
+
+
+				// PROGRAMAS				
+				if ($programacionFlag==TRUE) {					
+					foreach ($JsonContent['PROGRAMACION']['CANAL']['SHOWS'] as $key => $bodyShow) {
+						$IDProgramaTMP = getID($mysqli);
+						$namePrograma = addslashes(strtolower($bodyShow['title']));
+
+						$programaexist = $mysqli->query("SELECT nombre FROM programas WHERE nombre ='".$namePrograma."'");			 
+				
+						if($programaexist->num_rows==0){
+							$queryPrograma = "INSERT INTO programas VALUES ('".$IDProgramaTMP."', '".$namePrograma."', '".addslashes($bodyShow['descripcion'])."')";
+							if ($mysqli->query($queryPrograma)) {
+								echo "<h6>Programa Agregado - ".$namePrograma."</h6>";
+							}else{
+								echo "<h6>programa no agregado a fallado el insert ".$IDProgramaTMP."-".$namePrograma."-".$bodyShow['descripcion']."</h6>";
+							}
+						}else{
+							echo "<h6>Ya no agrego el programa</h6>";
+						}
+
+						
+						//contenido
+						$IDContenidoTMP = getID($mysqli);
+						$querycontenido = "INSERT INTO contenido VALUES ('".$IDContenidoTMP."', '".$bodyShow['duration']."', '".$bodyShow['horario']."', '".$bodyShow['timestamp']."')";
+							if ($mysqli->query($querycontenido)) {
+								echo "<h6>Contenido Agregado</h6>";
+							}else{
+								echo "<h6>Contenido no agregado a fallado el insert</h6>";
+							}
+
+						//contenido-programas						
+						$queryProgramasContenido = "INSERT INTO programas_contenido VALUES ('".$IDProgramaTMP."', '".$IDContenidoTMP."')";
+							if ($mysqli->query($queryProgramasContenido)) {
+								echo "<h6>Agregado Relacion Programas-contenido</h6>";
+							}else{
+								echo "<h6>A Fallado Agregado Relacion Programas-contenido</h6>";
+							}
+
+						
+						//programacion-contenido						
+						$queryProgramacionContenido = "INSERT INTO programacion_contenido VALUES ('".$IDProgramacion."', '".$IDContenidoTMP."')";
+							if ($mysqli->query($queryProgramacionContenido)) {
+								echo "<h6>Agregado Relacion Programacion-contenido</h6>";
+							}else{
+								echo "<h6>A Fallado Agregado Relacion Programacion-contenido</h6>";
+							}
+
+
+						
+						
+
+					}	//ForEach
+
+
+					
+				} //IF programacionFLag
+				
+
+
 				 
-
-				
-				
-
-				
-
-
-/*
-	
-				echo "la fecha del json es: ". $JsonContent['PROGRAMACION']['FECHA'];
-				
-
-
-				foreach ($JsonContent['PROGRAMACION']['CANAL']['SHOWS'] as $key => $bodyShow) {
-					
-					//programa
-					echo "<br>_________PROGRAMA__________<br>";
-					echo $bodyShow['title'];
-					echo "<br>";
-					echo $bodyShow['descripcion'];
-					echo "<br>____________________<br>";
-
-					echo "<br>_________CONTENIDO__________<br>";
-					echo $bodyShow['horario'];
-					echo "<br>";
-					echo (int)$bodyShow['duration'];
-					echo "<br>";
-					echo (int)$bodyShow['timestamp'];
-					echo "<br>";
-					
-				}
-*/
 				//END INSERTS
-
-
-
 
 			}
 			
