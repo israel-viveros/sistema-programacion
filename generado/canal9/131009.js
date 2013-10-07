@@ -7,13 +7,13 @@
 				 "logo": "http://programaciontv.esmas.com/v2/img_canales/GALAVISION.gif",
 				 "SHOWS": [
 					{
-						"title": "Relaciones Peligrosas",
+						"title": "La Patrona",
 						"horario": "00:00:00",
 						"duration": "1800",
 						"timestamp": "1381294800",
 						"availOnDemand": "",
-						"thumbnail": "http://i2.esmas.com/EPG/canal9/GALATV_RelacionesPeligrosas_2x.png",
-						"descripcion": "Una Historia de amor entre dos seres para quienes la edad se convierte en su peor enemigo.",
+						"thumbnail": "http://i2.esmas.com/EPG/canal9/GALATV_LaPatrona_2x.png",
+						"descripcion": "Novela que narra la historia inolvidable de la &uacute;nica empleada femenina que trabaja en una mina.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},
@@ -73,13 +73,13 @@
 						"url_episodeSite": ""
 					},
 					{
-						"title": "El Gordo y la Flaca",
+						"title": "Glenn Martin",
 						"horario": "04:30:00",
 						"duration": "3600",
 						"timestamp": "1381311000",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "Dos presentadores que en forma amena y divertida relatan las novedades de las estrellas.",
+						"descripcion": "Las aventuras de un dentista quien se embarca en una aventura a trav&eacute;s del pa&iacute;s con su familia.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},
@@ -95,13 +95,13 @@
 						"url_episodeSite": ""
 					},
 					{
-						"title": "Programa Pagado",
+						"title": "Innova",
 						"horario": "06:00:00",
 						"duration": "1800",
 						"timestamp": "1381316400",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "Programa que muestra diversos productos para la venta.",
+						"descripcion": "Productos en venta por la empresa mexicana Innova.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},
@@ -260,13 +260,13 @@
 						"url_episodeSite": ""
 					},
 					{
-						"title": "La Patrona",
+						"title": "Marido en Alquiler",
 						"horario": "22:30:00",
 						"duration": "3600",
 						"timestamp": "1381375800",
 						"availOnDemand": "",
-						"thumbnail": "http://i2.esmas.com/EPG/canal9/GALATV_LaPatrona_2x.png",
-						"descripcion": "Novela que narra la historia inolvidable de la &uacute;nica empleada femenina que trabaja en una mina.",
+						"thumbnail": "",
+						"descripcion": "Una mujer hace de todo para sacar adelante a su familia haciendo las veces de 'esposo en alquiler'.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},

@@ -73,13 +73,13 @@
 						"url_episodeSite": ""
 					},
 					{
-						"title": "El Gordo y la Flaca",
+						"title": "Glenn Martin",
 						"horario": "04:30:00",
 						"duration": "3600",
 						"timestamp": "1381224600",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "Dos presentadores que en forma amena y divertida relatan las novedades de las estrellas.",
+						"descripcion": "Las aventuras de un dentista quien se embarca en una aventura a trav&eacute;s del pa&iacute;s con su familia.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},
@@ -95,24 +95,24 @@
 						"url_episodeSite": ""
 					},
 					{
-						"title": "Programa Pagado",
+						"title": "Innova",
 						"horario": "06:00:00",
 						"duration": "1800",
 						"timestamp": "1381230000",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "Programa que muestra diversos productos para la venta.",
+						"descripcion": "Productos en venta por la empresa mexicana Innova.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},
 					{
-						"title": "Programa Pagado",
+						"title": "Innova",
 						"horario": "06:30:00",
 						"duration": "1800",
 						"timestamp": "1381231800",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "Programa que muestra diversos productos para la venta.",
+						"descripcion": "Productos en venta por la empresa mexicana Innova.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},
@@ -251,22 +251,11 @@
 					{
 						"title": "La Patrona",
 						"horario": "22:30:00",
-						"duration": "3600",
+						"duration": "7200",
 						"timestamp": "1381289400",
 						"availOnDemand": "",
 						"thumbnail": "http://i2.esmas.com/EPG/canal9/GALATV_LaPatrona_2x.png",
 						"descripcion": "Novela que narra la historia inolvidable de la &uacute;nica empleada femenina que trabaja en una mina.",
-						"url_officialSite": "",
-						"url_episodeSite": ""
-					},
-					{
-						"title": "Relaciones Peligrosas",
-						"horario": "23:30:00",
-						"duration": "3600",
-						"timestamp": "1381293000",
-						"availOnDemand": "",
-						"thumbnail": "http://i2.esmas.com/EPG/canal9/GALATV_RelacionesPeligrosas_2x.png",
-						"descripcion": "Una Historia de amor entre dos seres para quienes la edad se convierte en su peor enemigo.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					} 

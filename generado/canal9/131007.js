@@ -84,13 +84,13 @@
 						"url_episodeSite": ""
 					},
 					{
-						"title": "El Gordo y la Flaca",
+						"title": "Glenn Martin",
 						"horario": "04:30:00",
 						"duration": "3600",
 						"timestamp": "1381138200",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "Dos presentadores que en forma amena y divertida relatan las novedades de las estrellas.",
+						"descripcion": "Las aventuras de un dentista quien se embarca en una aventura a trav&eacute;s del pa&iacute;s con su familia.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},
@@ -106,13 +106,13 @@
 						"url_episodeSite": ""
 					},
 					{
-						"title": "Programa Pagado",
+						"title": "Innova",
 						"horario": "06:00:00",
 						"duration": "1800",
 						"timestamp": "1381143600",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "Programa que muestra diversos productos para la venta.",
+						"descripcion": "Productos en venta por la empresa mexicana Innova.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},
