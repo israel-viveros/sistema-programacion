@@ -24,7 +24,7 @@
 						"timestamp": "1381468500",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "Una mirada a los acontecimientos m&aacute;s importantes que ha vivido M&eacute;xico a lo largo de su historia.",
+						"descripcion": "No disponible",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},

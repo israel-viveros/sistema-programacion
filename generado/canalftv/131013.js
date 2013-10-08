@@ -233,7 +233,7 @@
 						"timestamp": "1381683600",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "No disponible",
+						"descripcion": "Desde Suzuka, Jap&oacute;n.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},

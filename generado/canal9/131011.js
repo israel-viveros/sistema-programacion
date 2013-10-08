@@ -40,13 +40,13 @@
 						"url_episodeSite": ""
 					},
 					{
-						"title": "Glenn Martin",
+						"title": "Lo Mejor de Aqu&iacute; y Ahora",
 						"horario": "02:00:00",
 						"duration": "1800",
 						"timestamp": "1381474800",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "Las aventuras de un dentista quien se embarca en una aventura a trav&eacute;s del pa&iacute;s con su familia.",
+						"descripcion": "Investigaciones period&iacute;sticas de temas de actualidad y entrevistas a personajes famosos.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},
@@ -73,13 +73,13 @@
 						"url_episodeSite": ""
 					},
 					{
-						"title": "Glenn Martin",
+						"title": "Lo Mejor de Aqu&iacute; y Ahora",
 						"horario": "04:30:00",
 						"duration": "3600",
 						"timestamp": "1381483800",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "Las aventuras de un dentista quien se embarca en una aventura a trav&eacute;s del pa&iacute;s con su familia.",
+						"descripcion": "Investigaciones period&iacute;sticas de temas de actualidad y entrevistas a personajes famosos.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},

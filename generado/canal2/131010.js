@@ -167,7 +167,7 @@
 						"timestamp": "1381439700",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "No disponible",
+						"descripcion": "Una tragedia, un enga&ntilde;o y un encuentro inesperado.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},
