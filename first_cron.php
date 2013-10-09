@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Primer cron para generar SQL y JSON</title>
+	<title>Cron para generar SQL y JSON -- Esmas.com</title>
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -72,7 +72,7 @@ for($h=0;$h<sizeof($currentDate);$h++){
 			$existedFile=URL_FEED_OUTPUT.$channelArray[$z]."/".$currentDate[$h].".js";
 			$verifica = get_headers($existedFile);
 			if(!strpos($verifica[0], "404")){
-				echo "el archivo ya existe:  ".URL_FEED_OUTPUT.$channelArray[$z]."/".$currentDate[$h].".js<br>";
+				echo "<div class='build'>el archivo ya existe:  ".URL_FEED_OUTPUT.$channelArray[$z]."/".$currentDate[$h].".js</div>";
 			}else{
 				$finalProductionFile=generate_production_JS($diferencialContent,$channelArray[$z],$currentDate[$h]);
 				echo "<div class='build'>creando archivo: ".URL_FEED_OUTPUT.$channelArray[$z]."/".$currentDate[$h].".js</div>";
@@ -105,7 +105,7 @@ for($h=0;$h<sizeof($currentDate);$h++){
 								{
 								  	$IDCANAL = $rowChannel['id_canal'];								  	
 								}
-					echo "<div class='channel'>ya no agrego el canal--".$IDCANAL."</div>";
+					echo "<div class='channel'>ya no agrego el canal -- ".$IDCANAL."</div>";
 				}
 
 
@@ -135,8 +135,7 @@ for($h=0;$h<sizeof($currentDate);$h++){
 
 
 
-				//VERIFICO programacion del canal y fecha 
-				//
+				//VERIFICO programacion del canal y fecha 				
 				$programacion_canalExist = $mysqli->query("select a.nombre from canal a, fecha b, programacion c where c.id_canal = a.id_canal and b.id_fecha = c.id_fecha AND b.fecha = '".$fechatmp."' AND a.nombre = '".$channelName."'");	
 				if($programacion_canalExist->num_rows==0){
 					$noExistprogramacion_CanalExist=TRUE;
@@ -152,22 +151,20 @@ for($h=0;$h<sizeof($currentDate);$h++){
 
 
 				//programacion
-				
 				$IDProgramacion = getID($mysqli);
 
 				
 					$programacionFlag = TRUE;
 					$queryProgramacion = "INSERT INTO programacion VALUES ('".$IDProgramacion."', '".$IDCANAL."', '".$IDFecha."')";
 						if ($mysqli->query($queryProgramacion)) {
-							echo "<div class='programacion'>programacion agregada".$IDProgramacion."--".$IDCANAL."--".$IDFecha."</div>";
+							echo "<div class='programacion'>programacion agregada -- ".$IDProgramacion."--".$IDCANAL." -- ".$IDFecha."</div>";
 						}else{
-							echo "<div class='programacion'>programacion no agregada ha fallado el insert".$IDProgramacion."--".$IDCANAL."--".$IDFecha."</div>";
+							echo "<div class='programacion'>programacion no agregada ha fallado el insert -- ".$IDProgramacion."--".$IDCANAL." -- ".$IDFecha."</div>";
 						}
 			
 
 
 				// PROGRAMAS				
-								
 					foreach ($JsonContent['PROGRAMACION']['CANAL']['SHOWS'] as $key => $bodyShow) {
 						$IDProgramaTMP = getID($mysqli);
 						$namePrograma = addslashes(strtolower($bodyShow['title']));
@@ -177,16 +174,16 @@ for($h=0;$h<sizeof($currentDate);$h++){
 						if($programaexist->num_rows==0){
 							$queryPrograma = "INSERT INTO programas VALUES ('".$IDProgramaTMP."', '".$namePrograma."', '".addslashes($bodyShow['descripcion'])."')";
 							if ($mysqli->query($queryPrograma)) {
-								echo "<div class='show'>Programa Agregado --".$IDProgramaTMP."--".$namePrograma."</div>";
+								echo "<div class='show'>Programa Agregado -- ".$IDProgramaTMP." -- ".$namePrograma."</div>";
 							}else{
-								echo "<div class='show'>programa no agregado a fallado el insert ".$IDProgramaTMP."-".$namePrograma."-".$bodyShow['descripcion']."</div>";
+								echo "<div class='show'>programa no agregado a fallado el insert -- ".$IDProgramaTMP." -- ".$namePrograma." -- ".$bodyShow['descripcion']."</div>";
 							}
 						}else{
 								while ($rowPrograma = mysqli_fetch_assoc($programaexist))
 								{
 								  	$IDProgramaTMP = $rowPrograma['id_programa']; 
 								}
-							echo "<div class='show'>Ya no agrego el programa--".$IDProgramaTMP."</div>";
+							echo "<div class='show'>Ya no agrego el programa -- ".$IDProgramaTMP."</div>";
 						}
 
 						
@@ -194,26 +191,26 @@ for($h=0;$h<sizeof($currentDate);$h++){
 						$IDContenidoTMP = getID($mysqli);
 						$querycontenido = "INSERT INTO contenido VALUES ('".$IDContenidoTMP."', '".$bodyShow['duration']."', '".$bodyShow['horario']."', '".$bodyShow['timestamp']."')";
 							if ($mysqli->query($querycontenido)) {
-								echo "<div class='contenido'>Contenido Agregado--".$IDContenidoTMP."--".$bodyShow['horario']."</div>";
+								echo "<div class='contenido'>Contenido Agregado -- ".$IDContenidoTMP." -- ".$bodyShow['horario']."</div>";
 							}else{
-								echo "<div class='contenido'>Contenido NO Agregado ha fallado el insert--".$IDContenidoTMP."--".$bodyShow['horario']."</div>";
+								echo "<div class='contenido'>Contenido NO Agregado ha fallado el insert -- ".$IDContenidoTMP." -- ".$bodyShow['horario']."</div>";
 							}
 
 						//contenido-programas						
 						$queryProgramasContenido = "INSERT INTO programas_contenido VALUES ('".$IDProgramaTMP."', '".$IDContenidoTMP."')";
 							if ($mysqli->query($queryProgramasContenido)) {
-								echo "<div class='relacion'>Agregado Relacion Programas-contenido".$IDProgramaTMP."--".$IDContenidoTMP."</div>";
+								echo "<div class='relacion'>Agregado Relacion Programas-contenido -- ".$IDProgramaTMP." -- ".$IDContenidoTMP."</div>";
 							}else{
-								echo "<div class='relacion'>A Fallado Agregado Relacion Programas-contenido".$IDProgramaTMP."--".$IDContenidoTMP."</div>";
+								echo "<div class='relacion'>A Fallado Agregado Relacion Programas-contenido -- ".$IDProgramaTMP." -- ".$IDContenidoTMP."</div>";
 							}
 
 						
 						//programacion-contenido						
 						$queryProgramacionContenido = "INSERT INTO programacion_contenido VALUES ('".$IDProgramacion."', '".$IDContenidoTMP."')";
 							if ($mysqli->query($queryProgramacionContenido)) {
-								echo "<div class='relacion'>Agregado Relacion Programacion-contenido".$IDProgramacion."--".$IDContenidoTMP."</div>";
+								echo "<div class='relacion'>Agregado Relacion Programacion-contenido -- ".$IDProgramacion." -- ".$IDContenidoTMP."</div>";
 							}else{
-								echo "<div class='relacion'>A Fallado Agregado Relacion Programacion-contenido".$IDProgramacion."--".$IDContenidoTMP."</div>";
+								echo "<div class='relacion'>A Fallado Agregado Relacion Programacion-contenido -- ".$IDProgramacion." -- ".$IDContenidoTMP."</div>";
 							}
 
 
@@ -246,3 +243,6 @@ for($h=0;$h<sizeof($currentDate);$h++){
 
 
 ?>
+
+</body>
+</html>
