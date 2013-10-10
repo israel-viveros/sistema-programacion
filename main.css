@@ -1,0 +1,41 @@
+*{
+	font-family: arial;
+}
+.build{
+	font-size: 15px;
+	color: black;
+	margin: 10px 0;
+	font-weight: 700;	
+}
+.channel {
+	color: red;
+	margin: 10px 0 10px 10px;	
+	font-size: 14px;
+}
+.date {
+	margin-left: 10px;
+	font-size: 12px;
+	margin: 10px;	
+	color: yellowgreen;
+}
+.show{
+	margin: 15px 0 0 10px;
+	font-size: 13px;
+	line-height: 17px;
+	color: green;
+}
+.contenido{
+	margin-left: 10px;
+	color: black;
+	font-size: 13px;
+}
+.programacion{
+	margin-left: 10px;
+	color: orange;
+	font-size: 13px;
+}
+.relacion{
+	margin-left: 10px;
+	color: gray;
+	font-size: 12px;
+}

@@ -271,13 +271,13 @@
 						"url_episodeSite": ""
 					},
 					{
-						"title": "Malcolm el de en Medio",
+						"title": "Victorious",
 						"horario": "18:00:00",
 						"duration": "3600",
 						"timestamp": "1381359600",
 						"availOnDemand": "",
-						"thumbnail": "http://i2.esmas.com/EPG/canal5/CANAL5_Malcom_2x.png",
-						"descripcion": "No disponible",
+						"thumbnail": "",
+						"descripcion": "Tori descubre que naci&oacute; para actuar despu&eacute;s de reemplazar a su hermana en un show de talentos.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},

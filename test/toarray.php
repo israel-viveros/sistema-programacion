@@ -1,3 +1,6 @@
+<?php 
+
+$string = '
 {
 		"PROGRAMACION":{ 
 		"FECHA": "2013-10-05",
@@ -123,7 +126,7 @@
 						"timestamp": "1380970800",
 						"availOnDemand": "",
 						"thumbnail": "",
-						"descripcion": "Serie animada basada en la revista gr&aacute;fica de Marvel ''Iron Man''.",
+						"descripcion": "Serie animada basada en la revista gr&aacute;fica de Marvel sIron Man.",
 						"url_officialSite": "",
 						"url_episodeSite": ""
 					},
@@ -252,4 +255,51 @@
 			
 		}
 	  }
+}';
+
+
+
+$JsonContent = json_decode($string, true);
+
+
+var_dump($JsonContent);
+
+/*
+
+echo "nombre del canal: ". strtolower($JsonContent['PROGRAMACION']['CANAL']['title']);
+echo "<br>";
+echo "el logotipo: ". $JsonContent['PROGRAMACION']['CANAL']['logo'];
+echo "<br>";
+echo "la fecha del json es: ". $JsonContent['PROGRAMACION']['FECHA'];
+echo "<br>";
+
+
+foreach ($JsonContent['PROGRAMACION']['CANAL']['SHOWS'] as $key => $bodyShow) {
+	
+	//programa
+	echo "<br>_________PROGRAMA__________<br>";
+	echo $bodyShow['title'];
+	echo "<br>";
+	echo $bodyShow['descripcion'];
+	echo "<br>____________________<br>";
+
+	echo "<br>_________CONTENIDO__________<br>";
+	echo $bodyShow['horario'];
+	echo "<br>";
+	echo (int)$bodyShow['duration'];
+	echo "<br>";
+	echo (int)$bodyShow['timestamp'];
+	echo "<br>";
+	
+
+
+
+
+	
+	
 }
+
+
+*/
+
+ ?>
